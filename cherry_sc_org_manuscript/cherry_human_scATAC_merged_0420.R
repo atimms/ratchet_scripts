@@ -66,12 +66,12 @@ combined <- FindTopFeatures(combined, min.cutoff = 20)
 combined <- RunSVD(combined, reduction.key = 'LSI_',
                    reduction.name = 'lsi', irlba.work = 400)
 combined <- RunUMAP(combined, dims = 2:30, reduction = 'lsi')
-DimPlot(combined, group.by = 'dataset', pt.size = 0.1)
-dev.copy2pdf(file="./signac_analysis/human_scatac_0420.merged.UMAP_by_sample.pdf", width=20)
 combined <- FindNeighbors(object = combined, reduction = 'lsi', dims = 2:30)
 combined <- FindClusters(object = combined, verbose = FALSE, algorithm = 3)
 DimPlot(object = combined, label = TRUE)
 dev.copy2pdf(file="./signac_analysis/human_scatac_0420.merged.UMAP_by_cluster.pdf", width=20)
+DimPlot(combined, split.by = 'dataset', pt.size = 0.1, label = TRUE)
+dev.copy2pdf(file="./signac_analysis/human_scatac_0420.merged.UMAP_split_by_sample.pdf", width=20)
 
 ##merged fragments using unix commands, so add to merged object
 combined <- SetFragments(combined, "/active/cherry_t/OrgManuscript_SingleCell_Data/human_scATAC/merge_fragments/fragments.tsv.gz")

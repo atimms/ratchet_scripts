@@ -32,11 +32,11 @@ human_harmony <- FindNeighbors(human_harmony, reduction = 'harmony', dims = 1:30
 ##change resolutions - default
 human_harmony <- FindClusters(human_harmony, group.singletons = TRUE)
 #Plot UMAP
-DimPlot(human_harmony, reduction='umap', split.by='sample', pt.size=0.1)
+DimPlot(human_harmony, reduction='umap', split.by='sample', pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.harmony.UMAP_res0.8.sample_split.pdf", width = 20)
-DimPlot(human_harmony, reduction='umap', pt.size=0.1)
+DimPlot(human_harmony, reduction='umap', pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.harmony.UMAP_res0.8.pdf", width=20)
-DimPlot(human_harmony, reduction='umap', group.by = "sample", pt.size=0.1)
+DimPlot(human_harmony, reduction='umap', group.by = "sample", pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.harmony.UMAP_res0.8.sample.pdf", width=20)
 
 #Identify the number of cells in each cluster between samples
@@ -60,11 +60,11 @@ write.csv(human_harmony.diffexp, file='./seurat_analysis/human_scrnaseq_0420.har
 ##change resolutions - res0.4
 human_harmony <- FindClusters(human_harmony, resolution = 0.4, group.singletons = TRUE)
 #Plot UMAP
-DimPlot(human_harmony, reduction='umap', split.by='sample', pt.size=0.1)
+DimPlot(human_harmony, reduction='umap', split.by='sample', pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.harmony.UMAP_res0.4.sample_split.pdf", width = 20)
-DimPlot(human_harmony, reduction='umap', pt.size=0.1)
+DimPlot(human_harmony, reduction='umap', pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.harmony.UMAP_res0.4.pdf", width = 20)
-DimPlot(human_harmony, reduction='umap', group.by = "sample", pt.size=0.1)
+DimPlot(human_harmony, reduction='umap', group.by = "sample", pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.harmony.UMAP_res0.4.sample.pdf", width = 20)
 
 #Identify the number of cells in each cluster between samples
@@ -87,3 +87,4 @@ write.csv(human_harmony.diffexp, file='./seurat_analysis/human_scrnaseq_0420.har
 #Save object to avoid needing to re-run previous computations
 saveRDS(human_harmony, file = "./seurat_analysis/human_harmony.rds")
 
+human_harmony <- readRDS(file = "./seurat_analysis/human_harmony.rds")

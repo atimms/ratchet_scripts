@@ -24,11 +24,11 @@ human_merged <- FindNeighbors(human_merged, dims = 1:30, verbose=FALSE)
 human_merged <- FindClusters(human_merged, resolution = 0.5)
 
 #Plot UMAP
-DimPlot(human_merged, reduction='umap', split.by='sample', pt.size=0.1)
+DimPlot(human_merged, reduction='umap', split.by='sample', pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.merged.UMAP_res0.5.sample_split.pdf", width = 20)
-DimPlot(human_merged, reduction='umap', pt.size=0.1)
+DimPlot(human_merged, reduction='umap', pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.merged.UMAP_res0.5.pdf", width=20)
-DimPlot(human_merged, reduction='umap', group.by = "sample", pt.size=0.1)
+DimPlot(human_merged, reduction='umap', group.by = "sample", pt.size=0.1, label = TRUE)
 dev.copy2pdf(file="./seurat_analysis/human_scrnaseq_0420.merged.UMAP_res0.5.sample.pdf", width=20)
 
 #Save object
