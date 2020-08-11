@@ -369,3 +369,6 @@ colnames(hm.integrated)
 cell.info = hm.integrated$celltype
 write.csv(cell.info, file='./signac_analysis/adult/human_scatac_adult_0520.harmony.res0.4.cellinfo.csv')
 
+##get counts per sample/cell class
+sample.celltype.info = table(hm.integrated$celltype, hm.integrated$dataset)
+write.csv(sample.celltype.info, file='./signac_analysis/adult/human_scatac_adult_0520.harmony.res0.4.sample_cell_info.csv')
