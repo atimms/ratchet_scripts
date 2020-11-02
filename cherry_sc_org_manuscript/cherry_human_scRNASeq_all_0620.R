@@ -156,6 +156,9 @@ dev.copy2pdf(file="./seurat_analysis/all/human_scrnaseq_all_0620.harmony.res0.4.
 human_harmony.markers <- FindAllMarkers(human_harmony, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
 write.csv(human_harmony.markers, file='./seurat_analysis/all/human_scrnaseq_all_0620.harmony.markers.res0.4.csv')
 
+
+
+
 #Perform differential expression
 human_harmony_time = human_harmony
 Idents(human_harmony_time) <- 'time'
